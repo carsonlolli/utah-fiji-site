@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Member Portal · Phi Gamma Delta · University of Utah</title>
+<meta name="description" content="Members-only portal for initiated brothers of Phi Gamma Delta at the University of Utah — new-initiate checklist, key contacts, resources, and support.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Fraunces:ital,opsz,wght@1,9..144,400;1,9..144,500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/styles.css">
+<link rel="stylesheet" href="assets/css/app.css">
+</head>
+<body>
+
+<!-- LOGIN GATE -->
+<div class="gate" id="gate">
+  <div class="gate-card">
+    <span class="crest">FIJI</span>
+    <h2>Members Only</h2>
+    <p>This portal is restricted to initiated brothers of Phi Gamma Delta. Enter your credentials to continue.</p>
+    <input type="text" id="gateUser" placeholder="Username" autocomplete="off" onkeydown="if(event.key==='Enter')document.getElementById('gatePass').focus()">
+    <input type="password" id="gatePass" placeholder="Password" autocomplete="off" onkeydown="if(event.key==='Enter')handleGateLogin()">
+    <button class="modal-submit" onclick="handleGateLogin()">Enter</button>
+    <div class="gate-error" id="gateError">Invalid credentials. Please try again.</div>
+  </div>
+</div>
+
+<div class="page-content" id="pageContent">
+
+<nav class="nav" aria-label="Primary">
+  <div class="container">
+    <a href="index.html" class="nav-brand"><span class="crest">FIJI</span>Phi&nbsp;Gamma&nbsp;Delta <span>· Utah</span></a>
+    <button class="hamburger" aria-label="Menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="philanthropy.html">Philanthropy</a></li>
+      <li><a href="built-to-lead.html">Built to Lead</a></li>
+      <li><a href="members.html" class="active lock">Members <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></a></li>
+      <li><a href="https://utahfijimerch.com/" target="_blank" rel="noopener">Merch</a></li>
+      <li><a href="rush.html" class="nav-cta">Rush FIJI</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero hero--compact">
+  <div class="container">
+    <div class="reveal in measure">
+      <div class="eyebrow">New Brothers</div>
+      <h1>Congratulations,<br>You're Initiated<span class="serif-em">What now?</span></h1>
+      <p>Welcome to Phi Gamma Delta. Everything you need to get started as an active brother is right here — work through the checklist, save your progress, and reach out with questions.</p>
+    </div>
+  </div>
+</header>
+
+<!-- WELCOME -->
+<section class="section--tint">
+  <div class="container">
+    <div class="callout reveal" style="max-width:760px;">
+      <div class="eyebrow">Welcome</div>
+      <p class="pullquote">"You've taken a step that will define the rest of your college experience and beyond. Initiation isn't the end of a journey — it's the beginning. You are now part of a brotherhood that stretches back to 1848."<span class="sig">The Brothers of Phi Gamma Delta · University of Utah</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- CHECKLIST -->
+<section>
+  <div class="container">
+    <div class="checklist-head reveal">
+      <div>
+        <div class="eyebrow">Your To-Do List</div>
+        <h2 class="section-title">New Initiate Checklist</h2>
+        <p class="lede" style="margin-bottom:0;">Check off each item as you go. Progress saves in your browser.</p>
+        <div class="progress-wrap"><div class="progress-bar" id="progressBar"></div></div>
+        <div class="progress-text" id="progressText">0 of 15 completed</div>
+      </div>
+      <button class="download-btn" onclick="downloadChecklist()"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="15" height="15"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg> Download Checklist</button>
+    </div>
+
+    <h4 class="group-title">Financial & Administrative</h4>
+    <ul class="checklist" id="checklist">
+      <li data-key="dues"><div class="box"></div><div class="check-label">Pay semester dues or set up a payment plan<small>Contact the Treasurer within 2 weeks of initiation</small></div></li>
+      <li data-key="portal"><div class="box"></div><div class="check-label">Register on the national FIJI member portal<small>Visit phigam.org and create your account</small></div></li>
+      <li data-key="contact-info"><div class="box"></div><div class="check-label">Update your contact info with the Secretary<small>Phone, email, mailing address, emergency contact</small></div></li>
+    </ul>
+
+    <h4 class="group-title">Get Connected</h4>
+    <ul class="checklist">
+      <li data-key="groupme"><div class="box"></div><div class="check-label">Join the chapter GroupMe & Slack channels<small>Ask any brother for the invite links</small></div></li>
+      <li data-key="social"><div class="box"></div><div class="check-label">Follow FIJI Utah on social media<small>Instagram, Twitter/X — stay in the loop</small></div></li>
+      <li data-key="mentor"><div class="box"></div><div class="check-label">Schedule your first meeting with your mentor<small>Your mentor will reach out within 48 hours</small></div></li>
+    </ul>
+
+    <h4 class="group-title">Get Involved</h4>
+    <ul class="checklist">
+      <li data-key="committee"><div class="box"></div><div class="check-label">Sign up for at least one committee<small>Philanthropy, Social, Recruitment, Academics, or House Ops</small></div></li>
+      <li data-key="meeting"><div class="box"></div><div class="check-label">Attend your first chapter meeting<small>Sundays at 7:00 PM, chapter house — business casual</small></div></li>
+      <li data-key="service"><div class="box"></div><div class="check-label">Sign up for your first service event<small>Check the events calendar or ask the Philanthropy chair</small></div></li>
+      <li data-key="btl"><div class="box"></div><div class="check-label">Attend the Built to Lead kickoff session<small>FIJI's leadership development program</small></div></li>
+    </ul>
+
+    <h4 class="group-title">Know the Standards</h4>
+    <ul class="checklist">
+      <li data-key="handbook"><div class="box"></div><div class="check-label">Read the chapter handbook<small>Policies, bylaws, and expectations</small></div></li>
+      <li data-key="gpa"><div class="box"></div><div class="check-label">Understand the GPA requirement (2.5 minimum)<small>Study hours mandatory if below chapter average</small></div></li>
+      <li data-key="attendance"><div class="box"></div><div class="check-label">Review the attendance policy (80% minimum)<small>Unexcused absences may result in fines</small></div></li>
+      <li data-key="conduct"><div class="box"></div><div class="check-label">Acknowledge the FIJI code of conduct<small>You represent Phi Gamma Delta at all times</small></div></li>
+      <li data-key="welcome-dinner"><div class="box"></div><div class="check-label">Attend the New Initiate Welcome Dinner<small>Formal welcome event at the chapter house</small></div></li>
+    </ul>
+  </div>
+</section>
+
+<!-- KEY CONTACTS -->
+<section class="section--tint">
+  <div class="container">
+    <div class="eyebrow">Reach Out</div>
+    <h2 class="section-title">Key Contacts</h2>
+    <p class="lede measure" style="margin-bottom:40px;">The brothers you should know. Don't hesitate to reach out.</p>
+    <div class="grid grid-3">
+      <div class="contact-card reveal"><div class="role">President</div><h3>Chapter President</h3><p>Overall chapter leadership.</p><a href="mailto:president@utahfiji.org">president@utahfiji.org</a></div>
+      <div class="contact-card reveal" data-delay="1"><div class="role">Treasurer</div><h3>Treasurer</h3><p>Dues and payment plans.</p><a href="mailto:treasurer@utahfiji.org">treasurer@utahfiji.org</a></div>
+      <div class="contact-card reveal" data-delay="2"><div class="role">New Member Educator</div><h3>New Member Educator</h3><p>Your go-to during the transition.</p><a href="mailto:nme@utahfiji.org">nme@utahfiji.org</a></div>
+      <div class="contact-card reveal"><div class="role">Vice President</div><h3>Vice President</h3><p>Internal operations.</p><a href="mailto:vp@utahfiji.org">vp@utahfiji.org</a></div>
+      <div class="contact-card reveal" data-delay="1"><div class="role">Chapter Advisor</div><h3>Faculty Advisor</h3><p>Academic support and alumni connections.</p><a href="mailto:advisor@utahfiji.org">advisor@utahfiji.org</a></div>
+      <div class="contact-card reveal" data-delay="2"><div class="role">Alumni Director</div><h3>Alumni Relations</h3><p>Alumni network and events.</p><a href="mailto:alumni@utahfiji.org">alumni@utahfiji.org</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- BROTHER RESOURCES -->
+<section>
+  <div class="container">
+    <div class="eyebrow">Support & Education</div>
+    <h2 class="section-title">Brother Resources</h2>
+    <p class="lede measure" style="margin-bottom:40px;">Tools, training, and support for every brother in the chapter.</p>
+    <div class="grid grid-3">
+      <div class="card"><h3>Certified Recruiter Training</h3><p>The gold standard certification for fraternity recruiters — evidence-based recruitment practices, ethical standards, and communication skills.</p></div>
+      <div class="card"><h3>Substance Awareness</h3><p>Our chapter fosters a culture of responsible choices. Resources cover risks of alcohol and drug use, harm reduction, and support for those who need it.</p></div>
+      <div class="card"><h3>Hazing Prevention</h3><p>Hazing has no place in FIJI. We build men through positive mentorship. Clear definitions, university policies, and reporting procedures are available to all.</p></div>
+      <div class="card"><h3>Mental Health Support</h3><p>Resources for depression, anxiety, stress management, and suicide prevention. Brothers are encouraged to seek help without stigma.</p></div>
+      <div class="card"><h3>Sexual Respect & Consent</h3><p>Consent is clear, enthusiastic, and ongoing. Resources include education on healthy relationships, bystander intervention, and reporting procedures.</p></div>
+      <div class="card"><h3>Community Education</h3><p>Topics that protect our brothers and strengthen our community — bias awareness, inclusion, crisis communication, and ethical leadership.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- QUICK LINKS -->
+<section class="section--tint">
+  <div class="container">
+    <div class="eyebrow">Quick Links</div>
+    <h2 class="section-title">Important Links</h2>
+    <div class="grid grid-4" style="margin-top:36px;">
+      <div><h4 style="font-family:var(--font-display);font-size:0.85rem;letter-spacing:2px;text-transform:uppercase;color:var(--purple-200);margin-bottom:16px;">National FIJI</h4>
+        <ul class="linklist"><li><a href="https://www.phigam.org" target="_blank" rel="noopener">FIJI National Website</a></li><li><a href="https://connect.phigam.org/" target="_blank" rel="noopener">Chapter Development</a></li><li><a href="https://www.phigam.org" target="_blank" rel="noopener">Member Resources</a></li></ul></div>
+      <div><h4 style="font-family:var(--font-display);font-size:0.85rem;letter-spacing:2px;text-transform:uppercase;color:var(--purple-200);margin-bottom:16px;">University of Utah</h4>
+        <ul class="linklist"><li><a href="https://counselingcenter.utah.edu/" target="_blank" rel="noopener">Counseling Center</a></li><li><a href="https://studenthealth.utah.edu/" target="_blank" rel="noopener">Health Services</a></li><li><a href="https://deanofstudents.utah.edu/" target="_blank" rel="noopener">Dean of Students</a></li></ul></div>
+      <div><h4 style="font-family:var(--font-display);font-size:0.85rem;letter-spacing:2px;text-transform:uppercase;color:var(--purple-200);margin-bottom:16px;">Campus Support</h4>
+        <ul class="linklist"><li><a href="https://greek.utah.edu/" target="_blank" rel="noopener">Greek Life Office</a></li><li><a href="https://sexualassault.utah.edu/" target="_blank" rel="noopener">Title IX & Conduct</a></li><li><a href="https://safety.utah.edu/" target="_blank" rel="noopener">Crisis Resources</a></li></ul></div>
+      <div><h4 style="font-family:var(--font-display);font-size:0.85rem;letter-spacing:2px;text-transform:uppercase;color:var(--purple-200);margin-bottom:16px;">National Support</h4>
+        <ul class="linklist"><li><a href="tel:988">988 Suicide & Crisis Lifeline</a></li><li><a href="tel:+18006624357" target="_blank" rel="noopener">SAMHSA Helpline</a></li><li><a href="sms:741741">Crisis Text Line (741741)</a></li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section>
+  <div class="container">
+    <div class="eyebrow">FAQ</div>
+    <h2 class="section-title">Common Questions</h2>
+    <div style="max-width:760px;margin-top:30px;">
+      <div class="faq-item"><button class="faq-q" aria-expanded="false">How much are dues and when are they due?</button><div class="faq-a"><div class="faq-a-inner">Dues are set each semester and cover national fees, events, and house operations. They're due within two weeks of initiation. Payment plans are available through the Treasurer.</div></div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false">What if I can't make a chapter meeting?</button><div class="faq-a"><div class="faq-a-inner">Notify the Secretary in advance with a valid reason. Unexcused absences may result in fines or standards review. Just communicate ahead of time.</div></div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false">How do I get into leadership?</button><div class="faq-a"><div class="faq-a-inner">Start with a committee chair role. From there you can run for executive positions during elections. The Built to Lead program also develops your skills from day one.</div></div></div>
+      <div class="faq-item"><button class="faq-q" aria-expanded="false">What happens if my GPA drops below 2.5?</button><div class="faq-a"><div class="faq-a-inner">You'll be placed on academic probation within the chapter and required to attend study hours. The Academics committee and your mentor will help you get back on track.</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta section--tint">
+  <div class="container">
+    <h2>Your Brotherhood Starts Now</h2>
+    <p>You earned this. Get involved, show up, and leave your mark on this chapter.</p>
+    <a href="rush.html#connect" class="btn btn-primary">Get In Touch</a>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand"><span class="crest">FIJI</span>Phi Gamma Delta</div>
+        <p class="motto">Not for college days alone.</p>
+        <p style="color:var(--muted-2);font-size:0.84rem;margin-top:14px;">University of Utah · Salt Lake City, UT 84112</p>
+      </div>
+      <div><h4>Chapter</h4><ul style="list-style:none;"><li><a href="about.html">About</a></li><li><a href="rush.html">Rush</a></li><li><a href="philanthropy.html">Philanthropy</a></li></ul></div>
+      <div><h4>Brothers</h4><ul style="list-style:none;"><li><a href="built-to-lead.html">Built to Lead</a></li><li><a href="members.html">Member Portal</a></li><li><a href="https://utahfijimerch.com/" target="_blank" rel="noopener">Merch</a></li></ul></div>
+      <div><h4>Connect</h4><ul style="list-style:none;"><li><a href="https://www.instagram.com/utahfiji" target="_blank" rel="noopener">Instagram</a></li><li><a href="https://www.linkedin.com/company/phi-gamma-delta/" target="_blank" rel="noopener">LinkedIn</a></li><li><a href="https://www.phigam.org" target="_blank" rel="noopener">National FIJI</a></li></ul></div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-year>2026</span> Phi Gamma Delta — University of Utah.</span>
+      <span>Questions? nme@utahfiji.org</span>
+    </div>
+  </div>
+</footer>
+
+</div><!-- /page-content -->
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
