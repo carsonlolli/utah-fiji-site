@@ -18,7 +18,7 @@ Official website for the FIJI chapter at the University of Utah. Static HTML/CSS
 - `assets/img/`, `assets/video/` — media
 
 ## Member portal / advisor login
-Username `UtahPhiGam`, password `Utes1848!` (client-side gate only — not real security).
+Credentials are shared privately with members and advisors. This is a client-side gate only, not real security.
 
 ## Local preview
 ```
