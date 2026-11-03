@@ -101,3 +101,4 @@
 .event-tag { font-family: var(--font-display); font-size: 0.66rem; letter-spacing: 1.6px; text-transform: uppercase; color: var(--muted-2); }
 .event-tag--ours { color: var(--gold); }
 @media (max-width: 640px) { .event { gap: 14px; padding: 16px; } .event-date { width: 50px; } }
+.event-date--tbd strong { font-size: 1.1rem; letter-spacing: 1px; }
