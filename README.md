@@ -8,7 +8,7 @@ Official website for the FIJI chapter at the University of Utah. Static HTML/CSS
 - `rush.html` — Rush + Contact
 - `philanthropy.html` — Philanthropy (Alzheimer's Association partnership)
 - `built-to-lead.html` — Built to Lead leadership program + advisor console
-- `members.html` — Gated member portal (initiate checklist, contacts, resources)
+- `network.html` — Parents & Alumni Network explainer (replaced the old member portal; `members.html` now redirects here)
 - `404.html` — Not-found page
 
 ## Shared assets
