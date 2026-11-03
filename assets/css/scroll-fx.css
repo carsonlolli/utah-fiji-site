@@ -103,3 +103,18 @@
 .event-tag--ours { color: var(--gold); }
 @media (max-width: 640px) { .event { gap: 14px; padding: 16px; } .event-date { width: 50px; } }
 .event-date--tbd strong { font-size: 1.1rem; letter-spacing: 1px; }
+
+/* ---------- Typed pillars under the Home title (assets/js/pillars-type.js) ---------- */
+.pillar-type {
+  display: block; min-height: 1.5em; margin: 14px 0 2px;
+  font-family: var(--font-display); font-weight: 500; text-transform: uppercase;
+  font-size: clamp(1rem, 2.4vw, 1.35rem); letter-spacing: 0.32em; color: var(--gold);
+}
+.pillar-caret {
+  display: inline-block; width: 2px; height: 1em; margin-left: 4px; vertical-align: -0.1em;
+  background: var(--purple-bright); animation: pillar-blink 0.9s steps(1) infinite;
+}
+.pillar-type--still { letter-spacing: 0.18em; font-size: clamp(0.8rem, 2vw, 1rem); }
+.pillar-type--still .pillar-caret { display: none; }
+@keyframes pillar-blink { 50% { opacity: 0; } }
+.pillar-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }

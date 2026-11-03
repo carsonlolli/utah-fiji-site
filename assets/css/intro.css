@@ -1,0 +1,39 @@
+/* Intro screen (assets/js/intro.js). Black cover first, so the page never flashes underneath. */
+html.intro-on::before {
+  content: ""; position: fixed; inset: 0; z-index: 9998; background: #000;
+}
+html.intro-on, html.intro-on body { overflow: hidden; }
+
+.intro {
+  position: fixed; inset: 0; z-index: 9999;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px;
+  padding: 24px; background: #000; color: #f3eff9; text-align: center; cursor: pointer;
+  transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), visibility 0.8s;
+}
+.intro--out { opacity: 0; visibility: hidden; pointer-events: none; }
+
+.intro-crest {
+  width: auto; height: min(30vh, 240px); max-width: 60vw;
+  opacity: 0; transform: translateY(10px) scale(0.97);
+  animation: intro-crest-in 0.9s cubic-bezier(0.22, 1, 0.36, 1) 0.1s forwards;
+  filter: drop-shadow(0 18px 40px rgba(123, 47, 190, 0.35));
+}
+.intro-name {
+  font-family: 'Oswald', 'Arial Narrow', sans-serif; font-weight: 600; text-transform: uppercase;
+  font-size: clamp(1.4rem, 4.5vw, 2.4rem); letter-spacing: 0.22em; margin-top: 6px;
+  opacity: 0; animation: intro-fade 0.8s ease 0.35s forwards;
+}
+.intro-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.intro-skip {
+  position: absolute; right: 20px; bottom: 20px;
+  background: none; border: 1px solid rgba(255, 255, 255, 0.18); border-radius: 999px; color: #aba2b8;
+  font: 500 0.72rem/1 'Oswald', sans-serif; letter-spacing: 2px; text-transform: uppercase; padding: 9px 16px; cursor: pointer;
+}
+.intro-skip:hover, .intro-skip:focus-visible { color: #fff; border-color: #9b4fe0; outline: none; }
+
+@keyframes intro-crest-in { to { opacity: 1; transform: none; } }
+@keyframes intro-fade { to { opacity: 1; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .intro-crest, .intro-name { animation: none; opacity: 1; transform: none; }
+}
