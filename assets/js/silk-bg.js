@@ -4,6 +4,8 @@
    builder's fragment shader, fed its packed uniforms.
 
    Usage: <header class="hero hero--silk"> … </header>
+   Add data-silk-flip="x", "y" or "xy" to mirror it (e.g. a second page
+   that should feel related but not identical).
    Pauses when the tab is hidden or the hero is off screen.
    Reduced motion: draws one still frame.
    ============================================================= */
@@ -267,6 +269,8 @@
   function mount(host) {
     var canvas = document.createElement("canvas");
     canvas.className = "silk-canvas";
+    var flip = host.getAttribute("data-silk-flip") || "";
+    if (flip) canvas.style.transform = "scale(" + (flip.indexOf("x") >= 0 ? -1 : 1) + "," + (flip.indexOf("y") >= 0 ? -1 : 1) + ")";
     canvas.setAttribute("aria-hidden", "true");
     host.insertBefore(canvas, host.firstChild);
 

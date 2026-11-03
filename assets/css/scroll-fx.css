@@ -67,3 +67,37 @@
     radial-gradient(ellipse 50% 55% at 50% 52%, rgba(8,7,11,0.55), transparent 80%),
     linear-gradient(180deg, var(--bg) 0%, transparent 22%, transparent 78%, var(--bg) 100%);
 }
+/* Left-aligned heroes (About, Built to Lead): put the dark pool behind the text on the left. */
+.hero--silk.hero--silk-left::after {
+  background:
+    radial-gradient(ellipse 60% 75% at 18% 55%, rgba(8,7,11,0.78), rgba(8,7,11,0.35) 60%, transparent 85%),
+    linear-gradient(180deg, var(--bg) 0%, transparent 22%, transparent 78%, var(--bg) 100%);
+}
+
+/* Side-by-side photo that lines up with the top of the text block, not its middle. */
+@media (min-width: 781px) {
+  .hero-split .frame--align-heading { align-self: start; margin-top: 0; }
+}
+
+/* ---------- Upcoming events list (Philanthropy) ---------- */
+.events { list-style: none; max-width: 760px; margin: 40px auto 0; display: grid; gap: 14px; }
+.event {
+  display: flex; gap: 20px; align-items: flex-start;
+  padding: 18px 20px; border: 1px solid var(--line); border-radius: var(--radius); background: var(--bg-1);
+}
+.event--ours { border-color: rgba(155,79,224,0.55); background: linear-gradient(120deg, rgba(123,47,190,0.18), var(--bg-1) 60%); }
+.event-date {
+  flex: none; width: 58px; text-align: center; padding: 8px 0; border-radius: var(--radius-sm);
+  background: var(--bg-3); font-family: var(--font-display); text-transform: uppercase; line-height: 1;
+}
+.event-date span { display: block; font-size: 0.7rem; letter-spacing: 2px; color: var(--purple-200); margin-bottom: 4px; }
+.event-date strong { font-size: 1.6rem; font-weight: 700; }
+.event--ours .event-date { background: var(--purple); }
+.event--ours .event-date span { color: #fff; }
+.event-body { min-width: 0; }
+.event-body h3 { font-size: 1.05rem; margin: 6px 0 4px; }
+.event-meta { font-size: 0.86rem; color: var(--purple-200); }
+.event-body p:not(.event-meta) { font-size: 0.9rem; color: var(--muted); font-weight: 300; margin-top: 6px; }
+.event-tag { font-family: var(--font-display); font-size: 0.66rem; letter-spacing: 1.6px; text-transform: uppercase; color: var(--muted-2); }
+.event-tag--ours { color: var(--gold); }
+@media (max-width: 640px) { .event { gap: 14px; padding: 16px; } .event-date { width: 50px; } }

@@ -19,6 +19,20 @@
 (function () {
   "use strict";
 
+  // Event lists: hide anything that's already over, and show the "more coming" note if nothing's left.
+  document.querySelectorAll("[data-events]").forEach(function (list) {
+    var now = Date.now();
+    list.querySelectorAll("[data-ends]").forEach(function (row) {
+      var end = Date.parse(row.getAttribute("data-ends"));
+      if (!isNaN(end) && end < now) row.remove();
+    });
+    if (!list.children.length) {
+      list.hidden = true;
+      var empty = list.parentNode.querySelector("[data-events-empty]");
+      if (empty) empty.hidden = false;
+    }
+  });
+
   var SKIP = ".reveal, .hero, .scroll-faq-pin, .hwf-root, .nav, .admin-panel, .gate";
   var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
