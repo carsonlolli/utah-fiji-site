@@ -67,7 +67,9 @@
 /* Cards over the Silk shader: the dimmed shader at the back, then the soft dark pool (which only
    darkens the shader), then the cards at full strength, then the text. Cards behind the headline
    stay faint on their own (see the centre lanes in float-profiles.js). */
-.hero--silk.hero--profiles > .silk-canvas { z-index: 0; opacity: 0.6; }
+.hero--silk.hero--profiles > .silk-canvas { z-index: 0; opacity: 0.4; }
+.hero--silk.hero--profiles .fp-card { background: rgba(30, 25, 42, 0.92); border-color: rgba(203, 176, 242, 0.28); }
+.hero--silk.hero--profiles .fp-far { filter: blur(0.8px); }
 .hero--silk.hero--profiles > .fp-layer { z-index: 2; }
 .hero--silk.hero--profiles::after {
   z-index: 1;

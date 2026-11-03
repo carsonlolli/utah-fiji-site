@@ -73,7 +73,9 @@
       n.style.setProperty("--dur", dur + "s");
       n.style.setProperty("--delay", -((i / list.length) * dur) + "s"); // already spread out on load
       n.style.setProperty("--scale", (1 - depth * 0.22).toFixed(2));
-      n.style.setProperty("--alpha", (centre ? 0.22 : 0.62) - depth * 0.14);
+      // Over the Silk shader the cards need more strength to read against the moving colour.
+      var bright = hero.classList.contains("hero--silk");
+      n.style.setProperty("--alpha", (centre ? (bright ? 0.3 : 0.22) : (bright ? 0.92 : 0.62)) - depth * 0.12);
       n.style.setProperty("--sway", (i % 2 ? 14 : -14) + "px");
       if (depth === 1) n.classList.add("fp-far");
       layer.appendChild(n);
