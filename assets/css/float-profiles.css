@@ -1,0 +1,78 @@
+/* Floating profile cards behind a hero. Pairs with assets/js/float-profiles.js. */
+.hero--profiles { position: relative; overflow: hidden; isolation: isolate; }
+.hero--profiles > .container { position: relative; z-index: 2; }
+
+/* Soft dark pool behind the headline so the text always reads. */
+.hero--profiles::after {
+  content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background:
+    radial-gradient(ellipse 46% 52% at 50% 50%, rgba(8,7,11,0.88), rgba(8,7,11,0.5) 60%, transparent 85%),
+    linear-gradient(180deg, var(--bg) 0%, transparent 16%, transparent 84%, var(--bg) 100%);
+}
+
+.fp-layer { position: absolute; inset: 0; z-index: 0; pointer-events: none; }
+
+.fp-card {
+  position: absolute; left: var(--x); top: 100%;
+  display: flex; align-items: flex-start; gap: 11px;
+  width: 210px; padding: 12px 14px;
+  background: rgba(21, 18, 28, 0.82); border: 1px solid var(--line-2); border-radius: 12px;
+  box-shadow: 0 18px 40px -22px rgba(0,0,0,0.9);
+  opacity: 0; transform: translateX(-50%);
+  animation: fp-rise var(--dur, 40s) linear var(--delay, 0s) infinite;
+  will-change: transform, opacity;
+}
+.fp-far { filter: blur(1.2px); }
+
+.fp-avatar {
+  flex: none; width: 34px; height: 34px; border-radius: 50%;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: linear-gradient(140deg, var(--purple), #3d1670);
+  font-family: var(--font-display); font-size: 0.72rem; font-weight: 600; letter-spacing: 1px; color: #fff;
+}
+.fp-body { min-width: 0; }
+.fp-role { font-family: var(--font-display); font-size: 0.78rem; font-weight: 600; letter-spacing: 0.8px; text-transform: uppercase; color: var(--text); line-height: 1.35; }
+.fp-meta { font-size: 0.74rem; color: var(--muted); line-height: 1.5; }
+.fp-tag {
+  display: inline-block; margin-top: 6px; padding: 1px 9px; border-radius: 999px;
+  background: rgba(123,47,190,0.22); color: var(--purple-200); font-size: 0.66rem; letter-spacing: 0.4px;
+}
+.fp-card--status { width: auto; align-items: center; padding: 9px 14px 9px 10px; border-color: rgba(228,195,107,0.3); }
+.fp-check {
+  flex: none; width: 24px; height: 24px; border-radius: 50%;
+  display: inline-flex; align-items: center; justify-content: center;
+  background: rgba(228,195,107,0.16); color: var(--gold); font-size: 0.75rem;
+}
+
+@keyframes fp-rise {
+  0%   { transform: translate(-50%, 0) scale(var(--scale, 1)); opacity: 0; }
+  10%  { opacity: var(--alpha, 0.5); }
+  50%  { transform: translate(calc(-50% + var(--sway, 0px)), -60vh) scale(var(--scale, 1)); }
+  88%  { opacity: var(--alpha, 0.5); }
+  100% { transform: translate(-50%, calc(-100% - 120vh)) scale(var(--scale, 1)); opacity: 0; }
+}
+
+.fp-paused .fp-card { animation-play-state: paused; }
+
+@media (max-width: 720px) {
+  .fp-card { width: 170px; padding: 10px 12px; }
+  .fp-card { --alpha: 0.2 !important; }
+}
+
+/* Reduced motion: a still scatter of cards instead of a drift. */
+@media (prefers-reduced-motion: reduce) {
+  .fp-card { animation: none; opacity: calc(var(--alpha, 0.5) * 0.8); top: auto; bottom: calc(var(--x) * 0.9); transform: translateX(-50%) scale(var(--scale, 1)); }
+}
+
+/* Cards over the Silk shader: the dimmed shader at the back, then the soft dark pool (which only
+   darkens the shader), then the cards at full strength, then the text. Cards behind the headline
+   stay faint on their own (see the centre lanes in float-profiles.js). */
+.hero--silk.hero--profiles > .silk-canvas { z-index: 0; opacity: 0.6; }
+.hero--silk.hero--profiles > .fp-layer { z-index: 2; }
+.hero--silk.hero--profiles::after {
+  z-index: 1;
+  background:
+    radial-gradient(ellipse 46% 50% at 50% 52%, rgba(8,7,11,0.72), rgba(8,7,11,0.3) 62%, transparent 85%),
+    linear-gradient(180deg, var(--bg) 0%, transparent 20%, transparent 80%, var(--bg) 100%);
+}
+.hero--silk.hero--profiles > .container { z-index: 3; }
