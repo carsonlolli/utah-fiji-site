@@ -33,6 +33,15 @@
     }
   });
 
+  // Shiny buttons (shiny-button.css): wrap each primary button's label so its hover glow can sit behind it.
+  document.querySelectorAll(".btn-primary, .nav-links a.nav-cta").forEach(function (btn) {
+    if (btn.querySelector(".btn-label")) return;
+    var label = document.createElement("span");
+    label.className = "btn-label";
+    while (btn.firstChild) label.appendChild(btn.firstChild);
+    btn.appendChild(label);
+  });
+
   var SKIP = ".reveal, .hero, .scroll-faq-pin, .hwf-root, .nav, .admin-panel, .gate";
   var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
