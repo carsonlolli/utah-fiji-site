@@ -10,7 +10,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Fraunces:ital,opsz,wght@1,9..144,400;1,9..144,500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/styles.css">
-<script>try{document.documentElement.classList.add(sessionStorage.getItem("slIntroSeen")?"sl-seen":"sl-playing")}catch(e){document.documentElement.classList.add("sl-seen")}</script>
+<link rel="stylesheet" href="assets/css/intro.css">
+<script src="assets/js/intro.js"></script>
 <link rel="stylesheet" href="assets/css/halftone-footer.css">
 <link rel="stylesheet" href="assets/css/scroll-fx.css">
 <link rel="stylesheet" href="assets/css/shiny-button.css">
@@ -18,32 +19,6 @@
 </head>
 <body>
 
-<!-- LINEAGE INTRO: black screen, then each house. Once per visit (lineage.js). -->
-<div class="sl-intro" role="dialog" aria-label="Sigma Lambda lineage intro" data-sl-intro>
-  <button type="button" class="sl-skip" data-sl-enter>Skip</button>
-  <div class="sl-stage sl-s1">
-    <svg viewBox="0 0 60 104" aria-hidden="true"><path d="M30 0 L60 52 L30 104 L0 52 Z" fill="#F3EFF9"></path><path d="M30 34 L34.7 46.5 L48 47 L37.6 55.2 L41.2 68 L30 60.6 L18.8 68 L22.4 55.2 L12 47 L25.3 46.5 Z" fill="#000"></path></svg>
-    <div class="sl-kick"><span style="animation-delay:0.900s">P</span><span style="animation-delay:0.935s">h</span><span style="animation-delay:0.970s">i</span><span style="animation-delay:1.005s">&nbsp;</span><span style="animation-delay:1.040s">G</span><span style="animation-delay:1.075s">a</span><span style="animation-delay:1.110s">m</span><span style="animation-delay:1.145s">m</span><span style="animation-delay:1.180s">a</span><span style="animation-delay:1.215s">&nbsp;</span><span style="animation-delay:1.250s">D</span><span style="animation-delay:1.285s">e</span><span style="animation-delay:1.320s">l</span><span style="animation-delay:1.355s">t</span><span style="animation-delay:1.390s">a</span><span style="animation-delay:1.425s">&nbsp;</span><span style="animation-delay:1.460s">·</span><span style="animation-delay:1.495s">&nbsp;</span><span style="animation-delay:1.530s">F</span><span style="animation-delay:1.565s">o</span><span style="animation-delay:1.600s">u</span><span style="animation-delay:1.635s">n</span><span style="animation-delay:1.670s">d</span><span style="animation-delay:1.705s">e</span><span style="animation-delay:1.740s">d</span><span style="animation-delay:1.775s">&nbsp;</span><span style="animation-delay:1.810s">1</span><span style="animation-delay:1.845s">8</span><span style="animation-delay:1.880s">4</span><span style="animation-delay:1.915s">8</span></div>
-  </div>
-  <div class="sl-stage sl-s2">
-    <h2 class="sl-big">Sigma Lambda</h2>
-    <div class="sl-rule"></div>
-  </div>
-  <div class="sl-cuts">
-      <div class="sl-cut" style="animation-delay:4.70s;background:radial-gradient(ellipse at center, #FF2E4855 0%, rgba(0,0,0,0) 62%), #000"><img src="assets/img/lineage/crest-mccarty.png" alt="" style="filter:drop-shadow(0 0 30px #FF2E48)"><div class="sl-house" style="text-shadow:0 0 24px #FF2E48">McCarty</div><div class="sl-motto">“Forti et fideli nihil difficile”</div><div class="sl-flash" style="animation-delay:4.70s"></div></div>
-      <div class="sl-cut" style="animation-delay:5.25s;background:radial-gradient(ellipse at center, #F5C40055 0%, rgba(0,0,0,0) 62%), #000"><img src="assets/img/lineage/crest-wilson.png" alt="" style="filter:drop-shadow(0 0 30px #F5C400)"><div class="sl-house" style="text-shadow:0 0 24px #F5C400">Wilson</div><div class="sl-motto">“Vincit qui se vincit”</div><div class="sl-flash" style="animation-delay:5.25s"></div></div>
-      <div class="sl-cut" style="animation-delay:5.80s;background:radial-gradient(ellipse at center, #FF2E4855 0%, rgba(0,0,0,0) 62%), #000"><img src="assets/img/lineage/crest-elliott.png" alt="" style="filter:drop-shadow(0 0 30px #FF2E48)"><div class="sl-house" style="text-shadow:0 0 24px #FF2E48">Elliott</div><div class="sl-motto">“Fortiter et recte”</div><div class="sl-flash" style="animation-delay:5.80s"></div></div>
-      <div class="sl-cut" style="animation-delay:6.35s;background:radial-gradient(ellipse at center, #F5C40055 0%, rgba(0,0,0,0) 62%), #000"><img src="assets/img/lineage/crest-gregg.png" alt="" style="filter:drop-shadow(0 0 30px #F5C400)"><div class="sl-house" style="text-shadow:0 0 24px #F5C400">Gregg</div><div class="sl-motto">“S&#x27;rioghal mo dhream”</div><div class="sl-flash" style="animation-delay:6.35s"></div></div>
-      <div class="sl-cut" style="animation-delay:6.90s;background:radial-gradient(ellipse at center, #4E77FF55 0%, rgba(0,0,0,0) 62%), #000"><img src="assets/img/lineage/crest-crofts.png" alt="" style="filter:drop-shadow(0 0 30px #4E77FF)"><div class="sl-house" style="text-shadow:0 0 24px #4E77FF">Crofts</div><div class="sl-motto">“Esse quam videri”</div><div class="sl-flash" style="animation-delay:6.90s"></div></div>
-      <div class="sl-cut" style="animation-delay:7.45s;background:radial-gradient(ellipse at center, #E0283F55 0%, rgba(0,0,0,0) 62%), #000"><img src="assets/img/lineage/crest-fletcher.png" alt="" style="filter:drop-shadow(0 0 30px #E0283F)"><div class="sl-house" style="text-shadow:0 0 24px #E0283F">Fletcher</div><div class="sl-motto">“Dieu pour nous”</div><div class="sl-flash" style="animation-delay:7.45s"></div></div>
-  </div>
-  <div class="sl-stage sl-s4">
-    <svg class="sl-emb" viewBox="0 0 60 104" aria-hidden="true"><path d="M30 0 L60 52 L30 104 L0 52 Z" fill="#F3EFF9"></path><path d="M30 34 L34.7 46.5 L48 47 L37.6 55.2 L41.2 68 L30 60.6 L18.8 68 L22.4 55.2 L12 47 L25.3 46.5 Z" fill="#000"></path></svg>
-    <h2 class="sl-big">Lineage</h2>
-    <div class="sl-kick">Six houses · 108 brothers</div>
-    <button type="button" class="sl-enter" data-sl-enter>Tap to enter</button>
-  </div>
-</div>
 
 <nav class="nav" aria-label="Primary">
   <div class="container">
