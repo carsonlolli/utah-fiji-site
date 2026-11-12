@@ -141,7 +141,7 @@
     { house: 'fletcher', name: 'Owen Bradley', big: 'Jayden Leithead' },
   ];
   var BLURRED = ['Cardin Nguyen'];
-  var NICKNAMES = { 'Max Goldberg': 'Goldie', 'Garrett Hansen': 'Gurt', 'Casey Dittmer': 'Ditty', 'Alex Guastella': 'Goose', 'Quincy Guerzon': 'Q', 'Aspen Ames': 'Spen', 'Sage Ames': 'AfroJack', 'Cameron Lentz': 'Cam' };
+  var NICKNAMES = { 'Max Goldberg': 'Goldie', 'Garrett Hansen': 'Gurt', 'Casey Dittmer': 'Ditty', 'Alex Guastella': 'Goose', 'Quincy Guerzon': 'Q', 'Aspen Ames': 'Spen', 'Sage Ames': 'AfroJack', 'Cameron Lentz': 'Cam', 'Zach Tragakis': 'Trag', 'Carson Lolli': 'Lolli', 'Jacob Steinberger': 'Steiny', 'Ian Stubbs': 'Stubs', 'Charlie Keckemet': 'Chuck' };
   var QUOTES = { 'Alex Guastella': 'the backwoods dropped my balls', 'Aspen Ames': "today's gonna be a social experiment", 'Tristan Winn': "It's all a part of my master plan." };
 
   // ---------- Houses ----------
