@@ -722,4 +722,17 @@
   renderHouses();
   renderDetail();
 
+  // ---------- Intro: black screen, each house's crest and motto, then "Tap to enter" ----------
+  var intro = $("[data-sl-intro]"), root = document.documentElement;
+  function enter() {
+    if (!intro || intro.classList.contains("sl-exit")) return;
+    try { sessionStorage.setItem("slIntroSeen", "1"); } catch (e) {}
+    intro.classList.add("sl-exit");
+    setTimeout(function () { intro.remove(); root.classList.remove("sl-playing"); }, 900);
+  }
+  if (intro && root.classList.contains("sl-seen")) intro.remove();
+  else if (intro) {
+    $$("[data-sl-enter]", intro).forEach(function (b) { b.addEventListener("click", enter); });
+    document.addEventListener("keydown", function (e) { if (e.key === "Escape") enter(); });
+  }
 })();
